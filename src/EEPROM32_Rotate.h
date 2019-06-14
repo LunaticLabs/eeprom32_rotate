@@ -25,6 +25,7 @@ along with the EEPROM32_Rotate library.  If not, see <http://www.gnu.org/license
 #define EEPROM32_ROTATE_H
 
 #include <EEPROM.h>
+#include <esp_partition.h>
 #include <Stream.h>
 #include <vector>
 

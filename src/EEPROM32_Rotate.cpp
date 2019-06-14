@@ -254,7 +254,7 @@ void EEPROM32_Rotate::begin(size_t size) {
     // Re-read the data from the best index partition
     _partition_index = best_index;
     _name = _partitions[_partition_index].name;
-    _mypart = _partitions[_partition_index].part;
+    _handle = _partitions[_partition_index].part;
     EEPROMClass::begin(size);
     _partition_value = best_value;
 
@@ -284,7 +284,7 @@ bool EEPROM32_Rotate::commit() {
     // Update partition for next write
     _partition_index = (_partition_index + 1) % _partitions.size();
     _name = _partitions[_partition_index].name;
-    _mypart = _partitions[_partition_index].part;
+    _handle = _partitions[_partition_index].part;
     _partition_value++;
 
     DEBUG_EEPROM32_ROTATE("Writing to partition #%u (%s)\n", _partition_index, _name);
